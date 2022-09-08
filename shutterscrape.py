@@ -42,10 +42,10 @@ def videoscrape():
             print("Page " + str(i))
             for j in range (0, 50):
                 while True:
-                    container = driver.find_elements_by_xpath("//div[@data-automation='VideoGrid_video_videoClipPreview_" + str(j) + "']")
+                    container = driver.find_elements("xpath", "//div[@data-automation='VideoGrid_video_videoClipPreview_" + str(j) + "']")
                     if len(container) != 0:
                         break
-                    if len(driver.find_elements_by_xpath("//div[@data-automation='VideoGrid_video_videoClipPreview_" + str(j + 1) + "']")) == 0 and i == searchPage:
+                    if len(driver.find_elements("xpath","//div[@data-automation='VideoGrid_video_videoClipPreview_" + str(j + 1) + "']")) == 0 and i == searchPage:
                         driver.close()
                         return
                     time.sleep(10)
